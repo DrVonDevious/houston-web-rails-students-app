@@ -28,8 +28,8 @@ class InstructorsController < ApplicationController
   end  
 
   def update
-    if @instructor.valid?
-      @instructor.update(instructor_params)
+    if @instructor.update(instructor_params)
+      # @instructor.update(instructor_params)
       redirect_to instructor_path(@instructor)
     else
       redirect_to edit_instructor_path

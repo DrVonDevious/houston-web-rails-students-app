@@ -30,12 +30,10 @@ class StudentsController < ApplicationController
   end  
 
   def update
-    if @student.valid?
+    if @student.update(student_params)
       @student.update(student_params)
-      # byebug
       redirect_to student_path(@student)
     else
-      # byebug
       redirect_to edit_student_path  
     end  
   end
