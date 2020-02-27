@@ -16,15 +16,24 @@ class InstructorsController < ApplicationController
 
   def create
     @instructor = Instructor.new(instructor_params)
-    redirect_to instructor_path(@instructor)
+    if @instructor.valid?
+      @instructor.save
+      redirect_to instructor_path(@instructor)
+    else
+      redirect_to new_instructor_path
+    end  
   end  
 
   def edit
   end  
 
   def update
-    @instructor.update(instructor_params)
-    redirect_to instructor_path(@instructor)
+    if @instructor.valid?
+      @instructor.update(instructor_params)
+      redirect_to instructor_path(@instructor)
+    else
+      redirect_to edit_instructor_path
+    end  
   end  
 
   def destroy

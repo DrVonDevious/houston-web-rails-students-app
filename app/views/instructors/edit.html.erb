@@ -1,7 +1,7 @@
 
 <h1>Edit Instructor</h1>
 
-<%= for_with method: @instructor do |f| %>
+<%= form_for @instructor do |f| %>
   
   <%= f.label :name %>
   <%= f.text_field :name %>
